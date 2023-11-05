@@ -18,9 +18,11 @@ use App\Models\User;
 
 Route::get('/', function () {
     return view('home', [
-        "title" => "home"
+        "title" => "home",
+        "active" => "home"
     ]);
 });
+
 
 Route::get('/about', function () {
     return view('about',[
@@ -36,16 +38,18 @@ Route::get('/blog', [PostController::class, 'index']);
 // Halaman Single Post
 Route::get('/posts/{post:slug}', [PostController::class, 'show']);
 
-Route::get('/categories', function(){
-    return view('categories',[
-        'title'=> 'Post Categories',
+Route::get('/categories', function () {
+    return view('categories', [
+        'title' => 'Post Categories',
+        'active'=> "categories",
         'categories' => Category::all()
     ]);
-} );
+});
 
 Route::get('/categories/{category:slug}', function(Category $category) {
     return view('posts',[
         'title'=> "post By Author : $category->name",
+        'active'=> "categories",
         'posts' => $category->posts->load('category', 'author'),
     ]);
 });
@@ -55,5 +59,4 @@ Route::get('/authors/{author:username}', function(user $author){
         'title'=> "Posts By Author : $author->name",
         'posts' => $author->posts->load('category', 'author'),
     ]);
-
 });
