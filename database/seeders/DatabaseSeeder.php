@@ -15,42 +15,43 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        
+        // \App\Models\User::factory()->create([
+            //     'name' => 'Test User',
+            //     'email' => 'test@example.com',
+            // ]);
+            
+            
+            // User::create([
+                //     'name'=> 'Hail Hilal',
+                //     'email'=> 'hail.hilal@gmail.com',
+                //     'password'=> bcrypt('12345')
+                // ]);
+                
+                // User::create([
+                    //     'name'=> 'S.Hilal',
+                    //     'email'=> 'shilal@gmail.com',
+                    //     'password'=> bcrypt('12345')
+                    // ]);
+                    
         User::factory(3)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        Category::create([
+            'name' => 'Web Programming',
+            'slug' => 'web-programming'
+        ]);
 
+        Category::create([
+            'name' => 'Web Design',
+            'slug' => 'web-design'
+        ]);
 
-            // User::create([
-            //     'name'=> 'Hail Hilal',
-            //     'email'=> 'hail.hilal@gmail.com',
-            //     'password'=> bcrypt('12345')
-            // ]);
+        Category::create([
+            'name' => 'Personal',
+            'slug' => 'personal'
+        ]);
 
-            // User::create([
-            //     'name'=> 'S.Hilal',
-            //     'email'=> 'shilal@gmail.com',
-            //     'password'=> bcrypt('12345')
-            // ]);
-
-            Category::create([
-                'name'=> 'Web programming',
-                'slug'=> 'web-programming'
-            ]);
-
-            Category::create([
-                'name'=> 'Web design',
-                'slug'=> 'web-design'
-            ]);
-
-            Category::create([
-                'name'=> 'Personal',
-                'slug'=> 'personal'   
-            ]);
-
-            Post::factory(20)->create();
+        Post::factory(20)->create();
 
         //     Post::create([
         //         'title' => 'Judul pertamax',
