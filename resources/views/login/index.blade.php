@@ -17,6 +17,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
 @endif
+
         <main class="form-signin">
           <h1 class="h3 mb-3 fw-normal text-center">Please Login</h1>
           <form action="/login" method="post">
@@ -36,6 +37,10 @@
             </div>
         
             <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
+
+            <a href="{{ URL::to('GoogleLogin') }}">
+              <img src="/img/LoginGoogle.png" class="w-100" alt="">
+            </a>
           </form>
           <small class="d-block text-center mt-3">
             Not Registered?<a href="/register" class="text-decoration-none">Register Now</a>
